@@ -47,7 +47,7 @@ class CommentViewSet(viewsets.ModelViewSet):
 class FollowViewSet(viewsets.ModelViewSet):
     '''Вьюсет для обработки подписок.'''
     serializer_class = FollowSerializer
-    filter_backends = (SearchFilter)
+    filter_backends = (SearchFilter,)
     search_fields = ('user__username', 'following__username',)
     permission_classes = (IsAuthenticated,)
 
