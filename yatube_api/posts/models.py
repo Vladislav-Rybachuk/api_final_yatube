@@ -117,14 +117,14 @@ class Comment(models.Model):
         related_name='comments',
         verbose_name='Имя автора',
         help_text='Укажите автора',
-        )
+    )
     post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
         related_name='comments',
         verbose_name='Имя поста',
         help_text='Укажите имя поста',
-        )
+    )
     text = models.TextField(
         max_length=300,
         verbose_name='Текст комментария',
@@ -134,7 +134,7 @@ class Comment(models.Model):
         auto_now_add=True,
         db_index=True,
         verbose_name='Дата добавления',
-        )
+    )
 
     class Meta:
         ordering = ('-created',)

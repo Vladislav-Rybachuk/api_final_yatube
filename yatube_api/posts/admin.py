@@ -4,7 +4,7 @@ from posts.models import Comment, Follow, Group, Post
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('pk','text', 'pub_date', 'author', 'group')
+    list_display = ('pk', 'text', 'pub_date', 'author', 'group')
     list_display_links = ('text', 'author')
     list_editable = ('group',)
     list_filter = ('pub_date', 'group')
@@ -27,7 +27,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 class FollowAdmin(admin.ModelAdmin):
-    list_display = ('pk','user', 'following',)
+    list_display = ('pk', 'user', 'following',)
 
 
 admin.site.register(Post, PostAdmin)
