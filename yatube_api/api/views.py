@@ -46,7 +46,7 @@ class CommentViewSet(viewsets.ModelViewSet):
 
 
 class FollowGetPostViewSet(mixins.CreateModelMixin, mixins.ListModelMixin,
-                    viewsets.GenericViewSet):
+                           viewsets.GenericViewSet):
     '''Базовый вьюсет для дальнейшего наследования вьюсетом Follow.'''
     pass
 
