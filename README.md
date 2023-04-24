@@ -1,27 +1,27 @@
-# API для Yatube
+# API for Yatube
 
 [![Python](https://img.shields.io/badge/-Python-464641?style=flat-square&logo=Python)](https://www.python.org/)
 [![Django](https://img.shields.io/badge/Django-464646?style=flat-square&logo=django)](https://www.djangoproject.com/)
 [![Pytest](https://img.shields.io/badge/Pytest-464646?style=flat-square&logo=pytest)](https://docs.pytest.org/en/6.2.x/)
 [![Postman](https://img.shields.io/badge/Postman-464646?style=flat-square&logo=postman)](https://www.postman.com/)
 
-### Oписание
+### Description
 
-Социальная сеть для публикации личных записей. 
-Реализация REST API для проекта Yatube.
+Social network for publishing personal records.
+REST API implementation for the Yatube project.
 
-### Функционал
+### Functional
 
-- Подписка и отписка от авторизованного пользователя;
-- Авторизованный пользователь просматривает посты, создавёт новые,
- удаляет и изменяет их;
-- Просмотр сообществ;
-- Комментирование, просмотр, удаление и обновление комментариев;
-- Фильтрация по полям.
+- Subscribing and unsubscribing from an authorized user;
+- An authorized user views posts, creates new ones,
+  removes and modifies them;
+- View communities;
+- Commenting, viewing, deleting and updating comments;
+- Filtering by fields;
 
-### Как запустить проект:
+### How to start a project:
 
-Клонировать репозиторий и перейти в него в командной строке:
+Clone the repository and change into it on the command line:
 
 ```
 git clone https://github.com/Vladislav-Rybachuk/api_final_yatube.git
@@ -30,112 +30,108 @@ git clone https://github.com/Vladislav-Rybachuk/api_final_yatube.git
 ```
 cd api_final_yatube
 ```
-Cоздать и активировать виртуальное окружение:
+Create and activate virtual environment:
 
 ```
 python3 -m venv env
 ```
 
-* Если у вас Linux/macOS
+* If you have MacOS/Linux
 
     ```
     source env/bin/activate
     ```
 
-* Если у вас windows
+* If you have windows
 
     ```
     source env/scripts/activate
     ```
 
-```
-python3 -m pip install --upgrade pip
-```
-
-Установить зависимости:
+Install dependencies:
 
    ```
    python3 -m pip install --upgrade pip
    pip install -r requirements.txt
    ```
 
-Выполнить миграции:
+Install dependencies:
 
 ```
 python3 manage.py migrate
 ```
 
-Запустить проект:
+Run project:
 
 ```
 python3 manage.py runserver
 ```
-### Примеры запросов
+### Request examples
 
-Получение токена
+Getting a token
 
-Отправить POST-запрос на адрес `api/v1/jwt/create/` и передать 2 поля в `data`:
+Send a POST request to `api/v1/jwt/create/` and send 2 fields to `data`:
 
-1. `username` - имя пользователя.
-2. `password` - пароль пользователя.
+1. `username` 
+2. `password` 
 
-Создание поста
+Create a post
 
-Отправить POST-запрос на адрес `api/v1/posts/` и передать обязательное поле `text`, в заголовке указать `Authorization`:`Bearer <токен>`.
+Send a POST request to `api/v1/posts/` and pass the required  `text` field, specify `Authorization`:`Bearer <token>` in the header.
 
-1. Пример запроса:
+1. Request example:
 
    ```json
    {
-     "text": "Мой первый пост."
+     "text": "My first post."
    }
    ```
-2. Пример ответа:
+2. Answer example:
 
    ```json
    {
      "id": 2,
      "author": "Dmitrii",
-     "text": "Мой первый пост.",
+     "text": "My first post.",
      "pub_date": "2023-01-22T12:00:22.021094Z",
      "image": null,
      "group": null
    }
    ```
 
-Комментирование поста пользователя
+Commenting on a user post
 
-Отправить POST-запрос на адрес `api/v1/posts/{post_id}/comments/` и передать обязательные поля `post` и `text`, в заголовке указать `Authorization`:`Bearer <токен>`.
+Send a POST request to `api/v1/posts/{post_id}/comments/` and pass the required fields `post` and `text`, specify `Authorization`:`Bearer <token>` in the header.
 
-1. Пример запроса:
+1. Request example:
 
    ```json
    {
      "post": 1,
-     "text": "Тест"
+     "text": "Text"
    }
    ```  
 
-2. Пример ответа:
+2. Answer example:
 
    ```json
    {
      "id": 1,
      "author": "Dmitrii",
-     "text": "Тест",
+     "text": "Теxt",
      "created": "2022-04-22T12:06:13.146875Z",
      "post": 1
    }
    ```
 
-## Ресурсы
+## Resource
 
 ```python
-# Документаия проекта
+# Project documentation
 http://127.0.0.1:8000/redoc/
 ```
 
 ```python
-# ПО для тестирования API, Postman
+# API testing software, Postman
 https://www.postman.com/
 ```
